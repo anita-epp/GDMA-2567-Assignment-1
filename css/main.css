@@ -32,21 +32,7 @@ html {
 	font-size: 16px;
 }
 
-/*Delete Later ********* */
 
-.wrapper {
-	background-color: deeppink; /* delete later */
-}
-
-[class*="col-"] {
-	height: 50px;
-	background-color: dimgrey; /* delete later */
-}
-
-[class*="col-"]:last-child div {  /* delete later */
-	background-color: mediumturquoise;
-}
- /*Delete End *************** */
 
 /*--------------------------------------------------------------
 1.0 - Typography
@@ -72,16 +58,58 @@ html {
 3.0 - Content
 -------------------------------------------------------------- */
 
-/*--- 3.1 - Site Structure---*/
+/*--- 3.1 - Site Structure, Header, Footer---*/
 
-.col-1-3:last-of-type {
+.col-1-3:last-of-type, .push-rt {
 	float: right;
+}
+
+#lg-adjust > div:nth-child(2) {
+	clear:left;
+}
+
+#lg-adjust {
+	position: relative;
+	top: 0;
+	let: 0;
+}
+
+#lg-adjust > div:last-child {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+header nav {
+	background-color: rgba(0, 110, 233, .8);
+}
+
+li {
+	display: inline-block;
+}
+
+body > footer {
+	background-color: #002a4f;
 }
 
 
 
-/*--- 3.2 - Section Name ---*/
-/*--- 3.3 - Section Name ---*/
+/*--- 3.2 - Work ---*/
+
+#work {
+	background-color: #f0f1f2;
+}
+
+/*--- 3.3 - Team ---*/
+
+#team {
+	background-color: #c5ced3;
+}
+
+#team span {
+		display: none;
+	}
+
 
 /*--------------------------------------------------------------
 4.0 - Media
@@ -97,6 +125,13 @@ html {
 	height: 20rem;
 }
 
+body > header {
+	background: center no-repeat url(../img/hero.jpg); 
+}
+
+
+
+
 /*--------------------------------------------------------------
 5.0 - Utility
 -------------------------------------------------------------- */
@@ -106,11 +141,21 @@ html {
 /*--- 5.3 - Text Sizes ---*/
 /*--- 5.4 - Alignments ---*/
 
+.circle {
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+
 /*--------------------------------------------------------------
 6.0 - Media Queries
 -------------------------------------------------------------- */
 
 @media screen and (max-width: 480px) {
+	
 	.col-1-12 {
 		width: 25%;
 	}
@@ -130,9 +175,30 @@ html {
 	#work .col-3-4 {
 		width: 75%;
 	}
+	
+	footer [class*="col-"] {
+		width: 100%;
+	}
+	
+	footer span {
+		display: none;
+	}
+	
+	#lg-adjust .circle {
+	background: no-repeat center url(../img/headshot-one-sm.jpg);
+	padding-top: 50%;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+	-ms-background-size: cover;
+	background-size: cover;
+	}
+	
+
 }
 
 @media screen and (min-width: 480px) {
+	
 	#work .col-1-4, #work .col-3-4 {
 		width: 100%;
 	}
@@ -142,5 +208,53 @@ html {
 		float: left;
 	}
 	
+	#team div.row section {
+		width: 33.33%;
+		float: left;
+	}
 	
+	#team div.row .col-1-2 {
+		width: 100%;
+	}
+	
+	#lg-adjust > div:first-child {
+		width: 66.66%;
+	}
+	
+	#lg-adjust > div:nth-child(2), #lg-adjust > div:last-child {
+		width: 33.33%;
+	}
+	
+	#lg-adjust > div:nth-child(2) {
+	clear: none;
+	}
+	
+	#lg-adjust, #lg-adjust > div:last-child {
+		position: static;
+	}
+	
+	footer .col-1-4, footer .col-1-2 {
+		float: right;
+	}
+	
+	#work img {
+		height: 4rem;
+	}
+	
+	#lg-adjust .circle {
+		background: no-repeat left url(../img/headshot-one-lg.jpg);
+		padding-top: 30%;
+		border-radius: 1rem;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		-webkit-background-size: cover;
+		-ms-background-size: cover;
+		background-size: cover;
+	}
+	
+	#team div.row .circle {
+	max-height: 10rem;
+}
+
+
 }
